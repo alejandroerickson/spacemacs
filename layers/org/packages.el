@@ -20,9 +20,9 @@
     gnuplot
     htmlize
     ;; org and org-agenda are installed by `org-plus-contrib'
-    (org :location built-in)
+    ;;(org :location built-in)
     (org-agenda :location built-in)
-    (org-plus-contrib :step pre)
+    ;;(org-plus-contrib :step pre)
     org-bullets
     ;; org-mime is installed by `org-plus-contrib'
     (org-mime :location built-in)
