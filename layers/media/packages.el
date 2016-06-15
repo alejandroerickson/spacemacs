@@ -42,7 +42,6 @@
           )
     emms-state
     helm-emms
-    emms-info-libtag
     )
   "The list of Lisp packages required by the media layer.
 
@@ -73,12 +72,14 @@ Each entry is either:
 
 (defun media/init-emms ()
   (use-package emms
+    :defer t
     :init
+    (progn
     (global-set-key [(f7)] 'emms-smart-browse)
     (add-hook 'emms-browser-show-display-hook 'evil-initialize)
-    (evil-set-initial-state 'emms-playlist-mode 'normal)
-    (evil-set-initial-state 'emms-browser-mode 'normal)
+    )
     :config
+    (progn
     ;;(require 'emms-setup)
     (emms-all)
     (emms-mode-line 0)
@@ -96,6 +97,7 @@ Each entry is either:
       "t" 'emms-mark-toggle
       "u" 'emms-mark-unmark-forward
       "K" 'emms-mark-kill-marked-tracks
+      "M" 'emms-mark-mode-disable
       )
     (evilified-state-evilify-map emms-playlist-mode-map
       :mode emms-playlist-mode
@@ -115,6 +117,7 @@ Each entry is either:
       ;; having trouble with this because it is
       ;; sometimes calling 'emms-playlist-mode-current-kill
       "K" 'emms-mark-kill-marked-tracks
+      "M" 'emms-mark-mode
       )
     (evilified-state-evilify-map emms-browser-mode-map
       :mode emms-browser-mode
@@ -125,7 +128,7 @@ Each entry is either:
       (kbd "<S-return>") 'emms-browser-add-tracks-and-play
      )
     ;; TODO: emms-browser search mode keybindings
-
+    ) 
     )
   )
 
