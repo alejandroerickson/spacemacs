@@ -31,6 +31,7 @@
 
 (defconst media-packages
   '(
+    ;; We need this recipe because MELPA version doesn't download the taglib metadata reader
     (emms :location (recipe
                      :fetcher git
                      :url "http://git.savannah.gnu.org/cgit/emms.git/"
@@ -75,60 +76,61 @@ Each entry is either:
     :defer t
     :init
     (progn
-    (global-set-key [(f7)] 'emms-smart-browse)
-    (add-hook 'emms-browser-show-display-hook 'evil-initialize)
-    )
+      ;; TODO: find a better global key, more evily
+      (global-set-key [(f7)] 'emms-smart-browse)
+      (add-hook 'emms-browser-show-display-hook 'evil-initialize)
+      )
     :config
     (progn
-    ;;(require 'emms-setup)
-    (emms-all)
-    (emms-mode-line 0)
-    (emms-playing-time 1)
-    (emms-default-players)
-    (autoload 'emms-smart-browse "emms-browser.el" "Browse with EMMS" t)
-    (define-key emms-browser-mode-map (kbd "D") 'emms-browser-delete-files-by-moving-to-trash)
-    (define-key emms-browser-mode-map (kbd "t") 'emms-browser-toggle-subitems)
-    (require 'emms-info-libtag)
-    (setq emms-info-functions '(emms-info-libtag))
+      ;;(require 'emms-setup)
+      (emms-all)
+      (emms-mode-line 0)
+      (emms-playing-time 1)
+      (emms-default-players)
+      (autoload 'emms-smart-browse "emms-browser.el" "Browse with EMMS" t)
+      (define-key emms-browser-mode-map (kbd "D") 'emms-browser-delete-files-by-moving-to-trash)
+      (define-key emms-browser-mode-map (kbd "t") 'emms-browser-toggle-subitems)
+      (require 'emms-info-libtag)
+      (setq emms-info-functions '(emms-info-libtag))
 
-    (evilified-state-evilify-map emms-mark-mode-map
-      :mode emms-mark-mode
-      :bindings
-      "t" 'emms-mark-toggle
-      "u" 'emms-mark-unmark-forward
-      "K" 'emms-mark-kill-marked-tracks
-      "M" 'emms-mark-mode-disable
-      )
-    (evilified-state-evilify-map emms-playlist-mode-map
-      :mode emms-playlist-mode
-      :bindings
-      "l" 'emms-next
-      "h" 'emms-previous
-      "H" 'emms-playlist-mode-first
-      "L" 'emms-playlist-mode-last
-      "W" 'emms-playlist-save
-      ;; P also works for emms-pause but it's kind of a stupid binding.
-      ;; can't use SPC, so we'll make do with TAB
-      (kbd "TAB") 'emms-pause
-      "u" 'emms-playlist-mode-undo
-      "p" 'emms-playlist-mode-yank
-      "P" 'emms-playlist-mode-yank-pop
-      "O" 'emms-playlist-mode-insert-newline
-      ;; having trouble with this because it is
-      ;; sometimes calling 'emms-playlist-mode-current-kill
-      "K" 'emms-mark-kill-marked-tracks
-      "M" 'emms-mark-mode
-      )
-    (evilified-state-evilify-map emms-browser-mode-map
-      :mode emms-browser-mode
-      :bindings
-      ;; since this is normally SPC
-      "t" 'emms-browser-toggle-subitems
-      ;; makes more sense than C-j
-      (kbd "<S-return>") 'emms-browser-add-tracks-and-play
-     )
-    ;; TODO: emms-browser search mode keybindings
-    ) 
+      (evilified-state-evilify-map emms-mark-mode-map
+        :mode emms-mark-mode
+        :bindings
+        "t" 'emms-mark-toggle
+        "u" 'emms-mark-unmark-forward
+        "K" 'emms-mark-kill-marked-tracks
+        "M" 'emms-mark-mode-disable
+        )
+      (evilified-state-evilify-map emms-playlist-mode-map
+        :mode emms-playlist-mode
+        :bindings
+        "l" 'emms-next
+        "h" 'emms-previous
+        "H" 'emms-playlist-mode-first
+        "L" 'emms-playlist-mode-last
+        "W" 'emms-playlist-save
+        ;; P also works for emms-pause but it's kind of a stupid binding.
+        ;; can't use SPC, so we'll make do with TAB
+        (kbd "TAB") 'emms-pause
+        "u" 'emms-playlist-mode-undo
+        "p" 'emms-playlist-mode-yank
+        "P" 'emms-playlist-mode-yank-pop
+        "O" 'emms-playlist-mode-insert-newline
+        ;; having trouble with this because it is
+        ;; sometimes calling 'emms-playlist-mode-current-kill
+        "K" 'emms-mark-kill-marked-tracks
+        "M" 'emms-mark-mode
+        )
+      (evilified-state-evilify-map emms-browser-mode-map
+        :mode emms-browser-mode
+        :bindings
+        ;; since this is normally SPC
+        "t" 'emms-browser-toggle-subitems
+        ;; makes more sense than C-j
+        (kbd "<S-return>") 'emms-browser-add-tracks-and-play
+        )
+      ;; TODO: emms-browser search mode keybindings
+      ) 
     )
   )
 
