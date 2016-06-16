@@ -26,7 +26,7 @@ This layer installs and configures media library management software EMMS.
 https://www.gnu.org/software/emms/
 
 * Install
-To use this contribution add it to your =~/.spacemacs=
+To use the media layer add it to your =~/.spacemacs=
 
 #+begin_src emacs-lisp
   (setq-default dotspacemacs-configuration-layers '(media))
