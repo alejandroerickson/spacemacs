@@ -237,6 +237,7 @@ the usual marking features. Operations should occur on all marked tracks.
   - When Browser Search is initiated it comes up in normal-state instead of
     evilified state.
   - Add keybindings for track information editor
+  - helm-emms does not narrow as it should.
 
 
   
