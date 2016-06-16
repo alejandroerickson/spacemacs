@@ -78,6 +78,17 @@ Each entry is either:
     (progn
       ;; TODO: find a better global key, more evily
       (global-set-key [(f7)] 'emms-smart-browse)
+      (spacemacs/declare-prefix "ame" "emms")
+      (spacemacs/set-leader-keys
+        "ames" 'emms-streams
+        "ameb" 'emms-browser
+        "amep" 'emms-playlist-mode-go
+        "a SPC" 'emms-play-pause-dwim
+        "a ." 'emms-next
+        "a ," 'emms-previous
+        "a RET" 'emms-smart-browse
+        )
+
       (add-hook 'emms-browser-show-display-hook 'evil-initialize)
       (add-hook 'emms-stream-hook 'evil-initialize)
       )
@@ -156,66 +167,16 @@ Each entry is either:
            "http://www.somafm.com/indiepop.pls" 1 streamlist)
           ("SomaFM: Doomed"
            "http://www.somafm.com/doomed.pls" 1 streamlist)
-          ;; DI now only available with premium account.
-          ;;("Digitally Imported, Trance"
-          ;; "http://www.di.fm/mp3/trance.pls" 1 streamlist)
-          ;; ("Digitally Imported, Deephouse"
-          ;;  "http://www.di.fm/mp3/deephouse.pls" 1 streamlist)
-          ;; ("Digitally Imported, Chillout"
-          ;;  "http://www.di.fm/mp3/chillout.pls" 1 streamlist)
-          ;; ("Digitally Imported, Drum and Bass"
-          ;;  "http://www.di.fm/mp3/drumandbass.pls" 1 streamlist)
-          ;; SKY only available with premium account.
-          ;; ("SKY.fm, Mostly Classical"
-          ;;  "http://www.sky.fm/mp3/classical.pls" 1 streamlist)
-          ;; ("SKY.fm, Jazz"
-          ;;  "http://www.sky.fm/mp3/jazz.pls" 1 streamlist)
-          ;; Appears to be defunct
-          ;; ("Philosomatika, Goa-Trance"
-          ;;  "http://www.shoutcast.com/sbin/shoutcast-playlist.pls?rn=1712&file=filename.pls" 1 streamlist)
           ("P H I L O S O M A T I K A - Progressive Psytrance"
            "http://listen.radionomy.com:80/-PHILOSOMATIKAPROGRESSIVE-" 1 url)
           ("P H I L O S O M A T I K A - Psytrance"
            "http://listen.radionomy.com:80/-PHILOSOMATIKA-" 1 url)
           ("Drum and Bass Radio, BassDrive"
            "http://www.bassdrive.com/BassDrive.m3u" 1 streamlist)
-          ;; These appear to be defunct
-          ;; ("Flaresound, Jazzmusique"
-          ;;  "http://64.236.34.196:80/stream/1016" 1 url)
-          ;; ("Flaresound, Jazzmusique"
-          ;;  "http://205.188.234.4:8004" 2 url)
-          ;; ("Flaresound, L'Electric"
-          ;;  "http://www.bp6.com:8002" 1 url)
-          ;; ("Stangs Garage, Eclectic"
-          ;;  "http://www.stangsgarage.com/listen.pls" 1 streamlist)
-          ;; ("DNA Lounge, Live"
-          ;;  "http://www.dnalounge.com/webcast/128.m3u" 1 streamlist)
-          ;; ("DNA Lounge Radio"
-          ;;  "http://www.dnalounge.com/webcast/dnaradio.m3u" 1 streamlist)
-          ;; ("Virgin Radio, The Groove"
-          ;;  "http://www.smgradio.com/core/audio/ogg/live.pls?service=grbb"
-          ;;  1 streamlist)
-          ;; ("Virgin Radio, Virgin Classic"
-          ;;  "http://www.smgradio.com/core/audio/ogg/live.pls?service=vcbb"
-          ;;  1 streamlist)
-          ;; ("Virgin Radio, Virgin 1215AM"
-          ;;  "http://www.smgradio.com/core/audio/ogg/live.pls?service=vrbb"
-          ;;  1 streamlist)
-          ;; ("Voices From Within - Words From Beyond"
-          ;;  "http://207.200.96.225:8024/listen.pls" 1 streamlist)
           ("WCPE, Classical Music"
            "http://www.ibiblio.org/wcpe/wcpe.pls" 1 streamlist)
-          ;; Defunct
-          ;; ("PLUG: Voices of the Free Software movement"
-          ;;  "http://purduelug.org:8000/voices-free_software.ogg" 1 url)
-          ;; ("VGamp Radio, Video Game music"
-          ;;  "http://vgamp.com/listen128.pls" 1 streamlist)
           ("Kohina - Old school game and demo music"
            "http://stream.nute.net/kohina/stream.ogg.m3u" 1 streamlist)
-          ;; Changed url, see below
-          ;; ("Nectarine, Demoscene Radio"
-          ;;  "http://www.scenemusic.eu:8002/high.ogg.m3u" 1 streamlist)
-          ;; Nectarine radio stations updated
           ("Nectarine, Demoscene Radio, DE Continuum's relay 192 mp3"
            "http://privat.is-by.us:8000/necta192.mp3.m3u" 1 streamlist)
           ("Nectarine, Demoscene Radio, DE stream (High Bitrate)"
@@ -230,18 +191,8 @@ Each entry is either:
            "http://www.idobi.com/radio/iradio.pls" 1 streamlist)
           ("radio.wazee - Modern Alternative Rock"
            "http://www.wazee.org/128.pls" 1 streamlist)
-          ;; Defunct
-          ;; ("ChroniX Aggression - Loud & Clear"
-          ;;  "http://www.chronixradio.com/chronixaggression/listen/listen.pls"
-          ;;  1 streamlist)
           ("WFMU, Freeform radio"
            "http://www.wfmu.org/wfmu.pls" 1 streamlist)
-          ;; Defunct
-          ;; ("KEXP - Seattle Community Radio"
-          ;;  "http://kexp-mp3-128k.cac.washington.edu:8000/listen.pls" 1 streamlist)
-          ;; Defunct
-          ;; ("KRUU-LP - Fairfield, Iowa Community Radio"
-          ;;  "http://kruufm.com/live.pls" 1 streamlist)
           ("WBCR-LP - Berkshire Community Radio"
            "http://nyc01.egihosting.com:6232/listen.pls" 1 streamlist))
         )
@@ -302,6 +253,54 @@ Disabled by default."
   (interactive)
   (when emms-player-playing-p
     (emms-player-seek 1)))
+
+(defun emms-play-pause-dwim ()
+  "aTry to pause, or play, or play a random track from the music library."
+  (interactive)
+  (let ((res nil))
+    (ignore-errors
+      (emms-pause)
+      (setq res t)
+      )
+    (unless res
+      (let ((res nil))
+        (ignore-errors
+          (emms-playlist-mode-go)
+          (goto-line 1) 
+          (emms-playlist-mode-play-smart)
+          (emms-playlist-mode-bury-buffer)
+          (setq res t) 
+          )
+        (unless res
+          (let ((res nil))
+            (ignore-errors
+              (emms-browser)
+              (emms-browse-by-album)
+              (emms-browser-goto-random)
+              (emms-browser-add-tracks-and-play)
+              (emms-browser-bury-buffer)
+              (setq res t)
+              )
+            (unless res
+              (message "Failed to play music.  Populate your EMMS library or playlist.")
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+;; (defun load-init-file (program)
+;;   (let ((win nil))
+;;     (ignore-errors ;if this fails, don't enter debugger
+;;       (load (merge-pathnames (make-pathname :name program :type :lisp)
+;;                              (user-homedir-pathname)))
+;;       (setq win t))
+;;     (unless win (format t "~&Init file failed to load.~%"))
+;;     win))
+
+;; (load-init-file "no-such-program")
+
 )
 ;; Adding some streams here.  Delete others that no longer work
 
