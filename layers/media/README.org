@@ -17,6 +17,7 @@
      - [[Interactive Playlists][Interactive Playlists]]
      - [[Mark Playlists ][Mark Playlists ]]
      - [[EMMS Browser ][EMMS Browser ]]
+     - [[Track (tag) Information Editor ][Track (tag) Information Editor ]]
  - [[Issues][Issues]]
 
 * Description
@@ -149,7 +150,7 @@ ensure that Emacs can find it in your PATH.
 | h           | Start playing the previous track in the playlist.                                                                                                                                                                                             |
 | L           | Go to the first track in the playlist.                                                                                                                                                                                                        |
 | H           | Go to the last track in the playlist.                                                                                                                                                                                                         |
-| p           | Paste tracks from kill-ring                                                                                                                                                                                                            |
+| p           | Paste tracks from kill-ring                                                                                                                                                                                                                   |
 | s           | Stop playing.                                                                                                                                                                                                                                 |
 | P           | "yank-pop" (who thought of these names, anyway?)                                                                                                                                                                                              |
 | >           | Seek ten seconds forward.                                                                                                                                                                                                                     |
@@ -161,16 +162,19 @@ ensure that Emacs can find it in your PATH.
 | M-<         | Go to the first track in the playlist.                                                                                                                                                                                                        |
 | M->         | Go to the last track in the playlist.                                                                                                                                                                                                         |
 | r           | Go to a randomly selected track in the playlist.                                                                                                                                                                                              |
+| E           | Edit track information.                                                                                                                                                                                                                       |
 | q           | Put the interactive playlist buffer at the end of the list of all buffers.                                                                                                                                                                    |
 | W           | Save the current playlist buffer to a file. By default, Emms will ask you for confirmation before overwriting an existing playlist. You can silently overwrite existing playlist by setting emms-source-playlist-ask-before-overwrite to nil. |
 | ?           | Describe the mode.                                                                                                                                                                                                                            |
 | K           | Cut (kill) marked tracks.                                                                                                                                                                                                                     |
 | D           | Cut (kill) track at point.                                                                                                                                                                                                                    |
 | O           | New line above point.                                                                                                                                                                                                                         |
-| M           | Enable playlist mark-mode.                                                                                                                                                                                                              |
+| M           | Enable playlist mark-mode.                                                                                                                                                                                                                    |
 *** Mark Playlists 
 
-In addition to most of the commands for normal playlists, Mark Playlists offer the usual marking features.
+In addition to most of the commands for normal playlists, Mark Playlists offer
+the usual marking features. Operations should occur on all marked tracks.
+
 
 | Key Binding | Description                                                                                                                                                                                 |
 |-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -222,7 +226,15 @@ In addition to most of the commands for normal playlists, Mark Playlists offer t
 | b 4         | Browse the collection by year.                           |
 | W a p       | Lookup the album using Pitchfork.                        |
 | W a w       | Lookup the album using Wikipedia.                        |
+*** TODO Track (tag) Information Editor 
+    Tag editor is entered from playlists with E.
 
-* Issues
-  When Browser Search is initiated it comes up in normal-state instead of
-  evilified state.
+    Evilified bindings are not available yet, but use C-c C-c to submit and exit
+    track information.
+* TODO Issues
+  - When Browser Search is initiated it comes up in normal-state instead of
+    evilified state.
+  - Add keybindings for track information editor
+
+
+  
