@@ -80,7 +80,7 @@ ensure that Emacs can find it in your PATH.
    - TagLib is the track info reader
    - Several key bindings have been changed to suite evil-mode
 
-** TODO Configuring media keys
+** Configuring media keys
    Configuring media keys (play/pause, next, previous) is system dependent, of
    course, but once you learn how to map them to terminal commands you can try
    something like the following:
