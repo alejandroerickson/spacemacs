@@ -25,19 +25,20 @@ Optionally, if you have a collection of media files in a single directory tree,
 you can set the root directory of that tree as EMMS's default.
 
 #+begin_src emacs-lisp
-    (setq emms-source-file-default-directory "/Volumes/Seabeam HD/Music/")
+    (setq emms-source-file-default-directory "/path/to/music/")
 #+end_src
 
 When you first open the EMMS browser it will prompt you to add music. It then
 builds a cache of track info, defaulting to the directory ~/.emacs.d/emms.
 Before doing so install a track info reader to properly extract track
 information, otherwise you will encounter errors and the track info will not be
-read. We recommend you use libtag (or TagLib?) the one included with EMMS, by
-compiling and installing it to your path.
+read. We recommend you use
+[TagLib](https://www.gnu.org/software/emms/manual/#Using-TagLib), the one
+included with EMMS, by compiling and installing it to your path.
 
-#+begin_src bash
+#+begin_src shell 
 $ cd
-~/.emacs.d/elpa/emms-20160531.1723/cd-here-and-make-emms-print-metadata-and-put-in-path/
+~/.emacs.d/elpa/emms-<version>/cd-here-and-make-emms-print-metadata-and-put-in-path/
 $ make emms-print-metadata
 #+end_src
 
@@ -51,24 +52,39 @@ Find the home page and full manual here:
 https://www.gnu.org/software/emms/
 https://www.gnu.org/software/emms/manual/
 
+Most importantly, you will need a media player. By default, the media layer is
+set up to support mpg321, ogg123, mplayer, and vlc. Install one of these and
+ensure that Emacs can find it in your PATH.
+
+
 ** EMMS configuration 
-   The default configuration for EMMS in the music layer does not show tracks in the mode-line
-   kl
+   The default configuration for EMMS in the media layer does not show tracks in
+   the mode-line, in order to minimise intrusion upon those who do not wish to
+   customise the layer.
+
+   EMMS is configured with the following defaults:
+   - all stable features of EMMS loaded
+   - No track in mode-line
+   - F7 to toggle emms smart browse
+   - TagLib is the track info reader
+   - Several key bindings have been changed to suite evil-mode
 
 ** TODO Configuring media keys
    Configuring media keys (play/pause, next, previous) is system dependent, of
    course, but once you learn how to map them to terminal commands you can try
    something like the following:
 
+   #+begin_src sh
    emacsclient --eval "(emms-pause)" || \
-	 emacsclient  --eval  "(emms-playlist-mode-go)"\
+   emacsclient  --eval  "(emms-playlist-mode-go)"\
    --eval "(goto-line 1)" --eval "(emms-playlist-mode-play-smart)" \
    --eval  "(emms-playlist-mode-bury-buffer)" || \
-	 emacsclient --eval "(emms-browser)" \
+   emacsclient --eval "(emms-browser)" \
    --eval "(emms-browse-by-album)"  --eval "(emms-browser-goto-random)" \
    --eval "(emms-browser-add-tracks-and-play)" || \
    say Open and cue up an E M M S playlist in emacs.
-
+   #+end_src
+   
    If the Emacs server is running and EMMS is loaded with at least one track in
    the emms-browser, then above command-line instruction will (in order) try to
    play a paused track, try to play the next track after the cursor in the
@@ -78,15 +94,18 @@ https://www.gnu.org/software/emms/manual/
    
    Commands for previous and next buttons are similar:
 
+   #+begin_src sh
    emacsclient --eval "(emms-next)" || \
-	 emacsclient  --eval  "(emms-playlist-mode-go)" --eval "(goto-line \
+   emacsclient  --eval  "(emms-playlist-mode-go)" --eval "(goto-line \
 	 1)" --eval "(emms-playlist-mode-play-smart)" --eval \
 	 "(emms-playlist-mode-bury-buffer)" ||\
 	 emacsclient --eval "(emms-browser)"  --eval
 	 "(emms-browse-by-album)"  --eval "(emms-browser-goto-random)"
 	 --eval "(emms-browser-add-tracks-and-play)" ||  say Open and cue
 	 up an E M M S playlist in emacs. 
+   #+end_src
    
+   #+begin_src sh
    emacsclient --eval "(emms-previous)" || \
 	 emacsclient  --eval  "(emms-playlist-mode-go)" --eval "(goto-line \
 	 1)" --eval "(emms-playlist-mode-play-smart)" --eval \
@@ -95,16 +114,31 @@ https://www.gnu.org/software/emms/manual/
 	 "(emms-browse-by-album)"  --eval "(emms-browser-goto-random)"
 	 --eval "(emms-browser-add-tracks-and-play)" ||  say Open and cue
 	 up an E M M S playlist in emacs.
+   #+end_src
  
-   [POINT READER TO KARABINER AND PRIVATE.XML]
-** TODO Alternative Track Info Readers
-   
+*** Setting the media keys on Mac OS X
+    Mac OS X media keys can be rebound with Karabiner (formerly
+    KeyRemap4MacBook). First, merge the file `private.xml` included in the media
+    layer must with `~/Library/Application\ Support/Karabiner/private.xml`.
+    Second, open Karabiner preferences and press "Reload XML". Third, and
+    finally, tick the three boxes related to EMMS.
+    
 
 * TODO Key bindings
-  I need help evilifying emms!
 
-  For the moment you need to use emms in emacs state.
+  Most of the key bindings in the EMMS manual for the browser and playlist modes, as
+  well as mark playlists, should work in Evil-mode now, except those that
+  obviously conflict with Spacemacs. Notable exceptions:
 
-| Key Binding     | Description    |
-|-----------------+----------------|
-| ~<SPC> x x x~   | Does thing01   |
+  - SPC replaced by t in browser to toggle subitems
+  - C-j replaced by S-RET to add and play tracks
+  - M to toggle between playlist and mark-playlist
+  - h,l for previous, next, instead of n,p
+  - H,L for first,last line of playlist
+  - W to save a playlist
+  - TAB in the playlist to pause
+  - u to playlist undo
+  - p to yank (insert from kill ring)
+  - O to insert a new line (above)
+
+    All key bindings are defined in packages.el.
