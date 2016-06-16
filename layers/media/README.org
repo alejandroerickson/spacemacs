@@ -135,7 +135,24 @@ ensure that Emacs can find it in your PATH.
     finally, tick the three boxes related to EMMS.
     
 * Key bindings
-  Emacs-state key bindings are documented for each mode at
+  EMMS browser and playlist modes can be access with leader keys. In Vim-style
+  Spacemacs leader keys are accessed with =SPC= (as described in the table) and
+  with Emacs style Spacemacs they are accessed with =M-m=.
+
+| Leader Key Binding | Description                                                      |
+|--------------------+------------------------------------------------------------------|
+| SPC a m            | music prefix                                                     |
+| SPC a m e          | EMMS prefix                                                      |
+| SPC a m e p        | Open current playlist in current buffer.                         |
+| SPC a m e b        | Open music browser in current buffer.                            |
+| SPC a RET          | Toggle smart browser (browser/playlist/close) in current buffer. |
+| SPC a SPC          | Play/pause do-what-I-mean.                                       |
+| SPC a .            | Play next track.                                                 |
+| SPC a ,            | Play previous track.                                             |
+
+In addition, the smart browser can be accessed through =F7=
+
+Emacs-state key bindings are documented for each mode at
   - https://www.gnu.org/software/emms/manual/#Interactive-Playlists
   - https://www.gnu.org/software/emms/manual/#Markable-Playlists
   - https://www.gnu.org/software/emms/manual/#Browser-Interface
