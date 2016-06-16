@@ -247,13 +247,13 @@ Disabled by default."
   "Seek one minute backward."
   (interactive)
   (when emms-player-playing-p
-    (emms-player-seek (- 1))))
+    (emms-player-seek (- 60))))
 
 (defun emms-seek-minute-forward ()
   "Seek one minute forward."
   (interactive)
   (when emms-player-playing-p
-    (emms-player-seek 1)))
+    (emms-player-seek 60)))
 
 (defun emms-play-pause-dwim ()
   "Try to pause, or play, or play a random track from the music library."
