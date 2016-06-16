@@ -256,7 +256,7 @@ Disabled by default."
     (emms-player-seek 1)))
 
 (defun emms-play-pause-dwim ()
-  "aTry to pause, or play, or play a random track from the music library."
+  "Try to pause, or play, or play a random track from the music library."
   (interactive)
   (let ((res nil))
     (ignore-errors
