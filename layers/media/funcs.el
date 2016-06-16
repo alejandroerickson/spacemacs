@@ -10,6 +10,8 @@
 ;;
 ;;; License: GPLv3
 
+;; Should these things be wrapped in post-init?
+
     (defun emms-browser-delete-files-by-moving-to-trash ()
       "Move all files under point to trash.
 Disabled by default."
@@ -38,3 +40,16 @@ Disabled by default."
 
     ;; disable this function so you have to do an extra confirmation to use it.
     (put 'emms-browser-delete-files-by-moving-to-trash  'disabled t)
+
+
+(defun emms-seek-minute-backward()
+  "Seek one minute backward."
+  (interactive)
+  (when emms-player-playing-p
+    (emms-player-seek (- 1))))
+
+(defun emms-seek-minute-forward ()
+  "Seek one minute forward."
+  (interactive)
+  (when emms-player-playing-p
+    (emms-player-seek 1)))

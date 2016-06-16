@@ -112,6 +112,8 @@ Each entry is either:
         ;; P also works for emms-pause but it's kind of a stupid binding.
         ;; can't use SPC, so we'll make do with TAB
         (kbd "TAB") 'emms-pause
+        "," 'emms-seek-minute-backward
+        "." 'emms-seek-minute-forward
         "u" 'emms-playlist-mode-undo
         "p" 'emms-playlist-mode-yank
         "P" 'emms-playlist-mode-yank-pop
