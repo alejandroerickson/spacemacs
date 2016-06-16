@@ -78,7 +78,8 @@ Each entry is either:
     (progn
       ;; TODO: find a better global key, more evily
       (global-set-key [(f7)] 'emms-smart-browse)
-      (spacemacs/declare-prefix "ame" "emms")
+      (spacemacs/declare-prefix "am" "music")
+      (spacemacs/declare-prefix "ame" "EMMS")
       (spacemacs/set-leader-keys
         "ames" 'emms-streams
         "ameb" 'emms-browser
