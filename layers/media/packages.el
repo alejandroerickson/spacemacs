@@ -2,7 +2,7 @@
 ;;
 ;; Copyright (c) 2012-2016 Sylvain Benner & Contributors
 ;;
-;; Author: Alejandro Erickson <alejo@alejandro.wlan.dur.ac.uk>
+;; Author: Alejandro Erickson <alejandro.erickson@gmail.com>
 ;; URL: https://github.com/syl20bnr/spacemacs
 ;;
 ;; This file is not part of GNU Emacs.
