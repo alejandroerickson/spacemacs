@@ -138,30 +138,8 @@ ensure that Emacs can find it in your PATH.
   - https://www.gnu.org/software/emms/manual/#Interactive-Playlists
   - https://www.gnu.org/software/emms/manual/#Markable-Playlists
   - https://www.gnu.org/software/emms/manual/#Browser-Interface
-    
-  A few key bindings differ in evilified-state.
-
-  Most of the key bindings in the EMMS manual for the browser and playlist modes, as
-  well as mark playlists, should work in Evil-mode now, except those that
-  obviously conflict with Spacemacs. Notable exceptions:
-
-  - SPC replaced by t in browser to toggle subitems
-  - C-j replaced by S-RET to add and play tracks
-  - M to toggle between playlist and mark-playlist
-  - h,l for previous, next, instead of n,p
-  - H,L for first,last line of playlist
-  - W to save a playlist
-  - TAB in the playlist to pause
-  - u to playlist undo
-  - p to yank (insert from kill ring)
-  - O to insert a new line (above)
-
-    All changed key bindings are defined in packages.el and original key
-    bindings in the EMMS manual.
-
-
-
 ** Evilified keybindings
+  A few key bindings differ in evilified-state.
 *** Interactive Playlists
 | Key Binding | Description                                                                                                                                                                                                                                   |
 |-------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -210,7 +188,7 @@ In addition to most of the commands for normal playlists, Mark Playlists offer t
 | K           | Cut (kill) marked tracks.                                                                 |
 | W           | Adds the marked tracks to the kill-ring, so that you can yank them into another playlist. |
 | M           | Disable playlist mark-mode.                                                               |
-
+ 
 *** EMMS Browser 
 
 | Key Binding | Description                                              |
@@ -227,7 +205,7 @@ In addition to most of the commands for normal playlists, Mark Playlists offer t
 | d           | View the current directory in dired.                     |
 | q           | Bury the browser buffer.                                 |
 | r           | Jump to a random track.                                  |
-| \/          | Isearch through the buffer.                              |
+| /           | Isearch through the buffer.                              |
 | <           | Redisplay with the previous filter.                      |
 | >           | Redisplay with the next filter.                          |
 | ?           | See the Emacs documentation for the function.            |
