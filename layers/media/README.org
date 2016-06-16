@@ -141,4 +141,5 @@ ensure that Emacs can find it in your PATH.
   - p to yank (insert from kill ring)
   - O to insert a new line (above)
 
-    All key bindings are defined in packages.el.
+    All changed key bindings are defined in packages.el and original key
+    bindings in the EMMS manual.
