@@ -98,6 +98,7 @@
         "pe"  'preview-environment
         "pf"  'preview-cache-preamble
         "pp"  'preview-at-point
+        "pt"  'preview-clearout-at-point
         "pr"  'preview-region
         "ps"  'preview-section
         "xB"  'latex/font-medium
