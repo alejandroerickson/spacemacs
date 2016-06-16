@@ -214,7 +214,7 @@ the usual marking features. Operations should occur on all marked tracks.
 | >           | Redisplay with the next filter.                          |
 | ?           | See the Emacs documentation for the function.            |
 | C-/         | Undo the previous playlist action.                       |
-| back-TAB    | Jump to the previous non-track element.                  |
+| S-TAB       | Jump to the previous non-track element.                  |
 | TAB         | Jump to the next non-track element.                      |
 | s A         | Search the collection by album.                          |
 | s a         | Search the collection by artist.                         |
