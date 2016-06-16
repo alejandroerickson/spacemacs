@@ -7,12 +7,22 @@
 [[img/media.png]]
 
 * Table of Contents                                        :TOC_4_org:noexport:
- - [[Decsription][Description]]
+ - [[Description][Description]]
  - [[Install][Install]]
+   - [[EMMS configuration ][EMMS configuration ]]
+   - [[Configuring media keys][Configuring media keys]]
+     - [[Setting the media keys on Mac OS X][Setting the media keys on Mac OS X]]
  - [[Key bindings][Key bindings]]
+   - [[Evilified keybindings][Evilified keybindings]]
+     - [[Interactive Playlists][Interactive Playlists]]
+     - [[Mark Playlists ][Mark Playlists ]]
+     - [[EMMS Browser ][EMMS Browser ]]
+ - [[Issues][Issues]]
 
 * Description
 This layer installs and configures media library management software EMMS.
+
+https://www.gnu.org/software/emms/
 
 * Install
 To use this contribution add it to your =~/.spacemacs=
@@ -123,8 +133,13 @@ ensure that Emacs can find it in your PATH.
     Second, open Karabiner preferences and press "Reload XML". Third, and
     finally, tick the three boxes related to EMMS.
     
-
-* TODO Key bindings
+* Key bindings
+  Emacs-state key bindings are documented for each mode at
+  - https://www.gnu.org/software/emms/manual/#Interactive-Playlists
+  - https://www.gnu.org/software/emms/manual/#Markable-Playlists
+  - https://www.gnu.org/software/emms/manual/#Browser-Interface
+    
+  A few key bindings differ in evilified-state.
 
   Most of the key bindings in the EMMS manual for the browser and playlist modes, as
   well as mark playlists, should work in Evil-mode now, except those that
@@ -143,3 +158,93 @@ ensure that Emacs can find it in your PATH.
 
     All changed key bindings are defined in packages.el and original key
     bindings in the EMMS manual.
+
+
+
+** Evilified keybindings
+*** Interactive Playlists
+| Key Binding | Description                                                                                                                                                                                                                                   |
+|-------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| a           | Add files in the playlist at point to the current playlist buffer. If we are in the current playlist, make a new playlist buffer and set it as current.                                                                                       |
+| b           | Set the current playlist buffer.                                                                                                                                                                                                              |
+| l           | Start playing the next track in the playlist.                                                                                                                                                                                                 |
+| h           | Start playing the previous track in the playlist.                                                                                                                                                                                             |
+| L           | Go to the first track in the playlist.                                                                                                                                                                                                        |
+| H           | Go to the last track in the playlist.                                                                                                                                                                                                         |
+| p           | Paste tracks from kill-ring                                                                                                                                                                                                            |
+| s           | Stop playing.                                                                                                                                                                                                                                 |
+| P           | "yank-pop" (who thought of these names, anyway?)                                                                                                                                                                                              |
+| >           | Seek ten seconds forward.                                                                                                                                                                                                                     |
+| <           | Seek ten seconds backward.                                                                                                                                                                                                                    |
+| f           | Describe the currently playing track in the minibuffer.                                                                                                                                                                                       |
+| c           | Display the current track in the center of the screen.                                                                                                                                                                                        |
+| TAB         | Pause.                                                                                                                                                                                                                                        |
+| RET         | Start playing the track under point. Note that this is also available with <mouse-2>.                                                                                                                                                         |
+| M-<         | Go to the first track in the playlist.                                                                                                                                                                                                        |
+| M->         | Go to the last track in the playlist.                                                                                                                                                                                                         |
+| r           | Go to a randomly selected track in the playlist.                                                                                                                                                                                              |
+| q           | Put the interactive playlist buffer at the end of the list of all buffers.                                                                                                                                                                    |
+| W           | Save the current playlist buffer to a file. By default, Emms will ask you for confirmation before overwriting an existing playlist. You can silently overwrite existing playlist by setting emms-source-playlist-ask-before-overwrite to nil. |
+| ?           | Describe the mode.                                                                                                                                                                                                                            |
+| K           | Cut (kill) marked tracks.                                                                                                                                                                                                                     |
+| D           | Cut (kill) track at point.                                                                                                                                                                                                                    |
+| O           | New line above point.                                                                                                                                                                                                                         |
+| M           | Enable playlist mark-mode.                                                                                                                                                                                                              |
+*** Mark Playlists 
+
+In addition to most of the commands for normal playlists, Mark Playlists offer the usual marking features.
+
+| Key Binding | Description                                                                                                                                                                                 |
+|-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| m           | Marks the current track and sets point one line forward. If a prefix argument ARG is given, it will mark the next ARG tracks and set point accordingly. A negative argument marks backward. |
+| U           | Unmarks all tracks in the playlist.                                                                                                                                                         |
+| t           | Toggles mark on the current track.                                                                                                                                                          |
+| u           | Unmarks same way as emms-mark-forward marks.                                                                                                                                                |
+| % m         | Marks all tracks in the playlist matching the given regular expression. A prefix argument means to unmark them instead.                                                                     |
+
+ When tracks are marked you can operate on them: 
+
+| Key Binding | Description                                                                               |
+|-------------+-------------------------------------------------------------------------------------------|
+| D           | Deletes the marked tracks from the playlist.                                              |
+| K           | Cut (kill) marked tracks.                                                                 |
+| W           | Adds the marked tracks to the kill-ring, so that you can yank them into another playlist. |
+| M           | Disable playlist mark-mode.                                                               |
+
+*** EMMS Browser 
+
+| Key Binding | Description                                              |
+|-------------+----------------------------------------------------------|
+| S-RET       | Add all tracks at point, and play the first added track. |
+| RET         | Add all tracks at point.                                 |
+| t           | Show or hide (kill) subitems under the current line.     |
+| 1           | Collapse everything.                                     |
+| 2           | Expand all top level items one level.                    |
+| 3           | Expand all top level items two levels.                   |
+| 4           | Expand all top level items three levels.                 |
+| C           | Clear the playlist.                                      |
+| E           | Expand everything.                                       |
+| d           | View the current directory in dired.                     |
+| q           | Bury the browser buffer.                                 |
+| r           | Jump to a random track.                                  |
+| \/          | Isearch through the buffer.                              |
+| <           | Redisplay with the previous filter.                      |
+| >           | Redisplay with the next filter.                          |
+| ?           | See the Emacs documentation for the function.            |
+| C-/         | Undo the previous playlist action.                       |
+| back-TAB    | Jump to the previous non-track element.                  |
+| TAB         | Jump to the next non-track element.                      |
+| s A         | Search the collection by album.                          |
+| s a         | Search the collection by artist.                         |
+| s s         | Search the collection by names.                          |
+| s t         | Search the collection by title.                          |
+| b 1         | Browse the collection by artist.                         |
+| b 2         | Browse the collection by album.                          |
+| b 3         | Browse the collection by genre.                          |
+| b 4         | Browse the collection by year.                           |
+| W a p       | Lookup the album using Pitchfork.                        |
+| W a w       | Lookup the album using Wikipedia.                        |
+
+* Issues
+  When Browser Search is initiated it comes up in normal-state instead of
+  evilified state.
