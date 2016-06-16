@@ -136,9 +136,12 @@ Each entry is either:
         (kbd "<S-return>") 'emms-browser-add-tracks-and-play
         )
       ;; TODO: emms-browser search mode keybindings
-      ) 
+      )
     )
-  (setq emms-stream-default-list
+  )
+
+(defun media/pre-init-emms ()
+(setq emms-stream-default-list
         '(("SomaFM: Beatblender"
            "http://www.somafm.com/beatblender.pls" 1 streamlist)
           ("SomaFM: Secret Agent"
@@ -241,8 +244,7 @@ Each entry is either:
           ;;  "http://kruufm.com/live.pls" 1 streamlist)
           ("WBCR-LP - Berkshire Community Radio"
            "http://nyc01.egihosting.com:6232/listen.pls" 1 streamlist))
-        ) 
-  (require 'emms-streams)
+        )
   )
 
 (defun media/init-emms-state ()
