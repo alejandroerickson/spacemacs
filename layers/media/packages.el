@@ -138,6 +138,111 @@ Each entry is either:
       ;; TODO: emms-browser search mode keybindings
       ) 
     )
+  (setq emms-stream-default-list
+        '(("SomaFM: Beatblender"
+           "http://www.somafm.com/beatblender.pls" 1 streamlist)
+          ("SomaFM: Secret Agent"
+           "http://www.somafm.com/secretagent.pls" 1 streamlist)
+          ("SomaFM: Groove Salad"
+           "http://www.somafm.com/groovesalad.pls" 1 streamlist)
+          ("SomaFM: Drone Zone"
+           "http://www.somafm.com/dronezone.pls" 1 streamlist)
+          ("SomaFM: Tag's Trance"
+           "http://www.somafm.com/tagstrance.pls" 1 streamlist)
+          ("SomaFM: Indie Pop Rocks"
+           "http://www.somafm.com/indiepop.pls" 1 streamlist)
+          ("SomaFM: Doomed"
+           "http://www.somafm.com/doomed.pls" 1 streamlist)
+          ;; DI now only available with premium account.
+          ;;("Digitally Imported, Trance"
+          ;; "http://www.di.fm/mp3/trance.pls" 1 streamlist)
+          ;; ("Digitally Imported, Deephouse"
+          ;;  "http://www.di.fm/mp3/deephouse.pls" 1 streamlist)
+          ;; ("Digitally Imported, Chillout"
+          ;;  "http://www.di.fm/mp3/chillout.pls" 1 streamlist)
+          ;; ("Digitally Imported, Drum and Bass"
+          ;;  "http://www.di.fm/mp3/drumandbass.pls" 1 streamlist)
+          ;; SKY only available with premium account.
+          ;; ("SKY.fm, Mostly Classical"
+          ;;  "http://www.sky.fm/mp3/classical.pls" 1 streamlist)
+          ;; ("SKY.fm, Jazz"
+          ;;  "http://www.sky.fm/mp3/jazz.pls" 1 streamlist)
+          ;; Appears to be defunct
+          ;; ("Philosomatika, Goa-Trance"
+          ;;  "http://www.shoutcast.com/sbin/shoutcast-playlist.pls?rn=1712&file=filename.pls" 1 streamlist)
+          ("P H I L O S O M A T I K A - Progressive Psytrance"
+           "http://listen.radionomy.com:80/-PHILOSOMATIKAPROGRESSIVE-" 1 url)
+          ("P H I L O S O M A T I K A - Psytrance"
+           "http://listen.radionomy.com:80/-PHILOSOMATIKA-" 1 url)
+          ("Drum and Bass Radio, BassDrive"
+           "http://www.bassdrive.com/BassDrive.m3u" 1 streamlist)
+          ;; These appear to be defunct
+          ;; ("Flaresound, Jazzmusique"
+          ;;  "http://64.236.34.196:80/stream/1016" 1 url)
+          ;; ("Flaresound, Jazzmusique"
+          ;;  "http://205.188.234.4:8004" 2 url)
+          ;; ("Flaresound, L'Electric"
+          ;;  "http://www.bp6.com:8002" 1 url)
+          ;; ("Stangs Garage, Eclectic"
+          ;;  "http://www.stangsgarage.com/listen.pls" 1 streamlist)
+          ;; ("DNA Lounge, Live"
+          ;;  "http://www.dnalounge.com/webcast/128.m3u" 1 streamlist)
+          ;; ("DNA Lounge Radio"
+          ;;  "http://www.dnalounge.com/webcast/dnaradio.m3u" 1 streamlist)
+          ;; ("Virgin Radio, The Groove"
+          ;;  "http://www.smgradio.com/core/audio/ogg/live.pls?service=grbb"
+          ;;  1 streamlist)
+          ;; ("Virgin Radio, Virgin Classic"
+          ;;  "http://www.smgradio.com/core/audio/ogg/live.pls?service=vcbb"
+          ;;  1 streamlist)
+          ;; ("Virgin Radio, Virgin 1215AM"
+          ;;  "http://www.smgradio.com/core/audio/ogg/live.pls?service=vrbb"
+          ;;  1 streamlist)
+          ;; ("Voices From Within - Words From Beyond"
+          ;;  "http://207.200.96.225:8024/listen.pls" 1 streamlist)
+          ("WCPE, Classical Music"
+           "http://www.ibiblio.org/wcpe/wcpe.pls" 1 streamlist)
+          ;; Defunct
+          ;; ("PLUG: Voices of the Free Software movement"
+          ;;  "http://purduelug.org:8000/voices-free_software.ogg" 1 url)
+          ;; ("VGamp Radio, Video Game music"
+          ;;  "http://vgamp.com/listen128.pls" 1 streamlist)
+          ("Kohina - Old school game and demo music"
+           "http://stream.nute.net/kohina/stream.ogg.m3u" 1 streamlist)
+          ;; Changed url, see below
+          ;; ("Nectarine, Demoscene Radio"
+          ;;  "http://www.scenemusic.eu:8002/high.ogg.m3u" 1 streamlist)
+          ;; Nectarine radio stations updated
+          ("Nectarine, Demoscene Radio, DE Continuum's relay 192 mp3"
+           "http://privat.is-by.us:8000/necta192.mp3.m3u" 1 streamlist)
+          ("Nectarine, Demoscene Radio, DE stream (High Bitrate)"
+           "http://nectarine.from-de.com/necta192.m3u" 1 streamlist)
+          ("Nectarine, Demoscene Radio, FR stream (High Bitrate)"
+           "http://necta-relay.mnus.de:8000/necta192.mp3.m3u" 1 streamlist)
+          ("Nectarine, Demoscene Radio, Norwegian stream"
+           "http://pmaster.no:9000/necta.m3u" 1 streamlist)
+          ("Nectarine, Demoscene Radio, UK stream (High Bitrate)"
+           "http://necta.jansenit.com:8000/necta192.mp3.m3u" 1 streamlist)
+          ("idobi Radio"
+           "http://www.idobi.com/radio/iradio.pls" 1 streamlist)
+          ("radio.wazee - Modern Alternative Rock"
+           "http://www.wazee.org/128.pls" 1 streamlist)
+          ;; Defunct
+          ;; ("ChroniX Aggression - Loud & Clear"
+          ;;  "http://www.chronixradio.com/chronixaggression/listen/listen.pls"
+          ;;  1 streamlist)
+          ("WFMU, Freeform radio"
+           "http://www.wfmu.org/wfmu.pls" 1 streamlist)
+          ;; Defunct
+          ;; ("KEXP - Seattle Community Radio"
+          ;;  "http://kexp-mp3-128k.cac.washington.edu:8000/listen.pls" 1 streamlist)
+          ;; Defunct
+          ;; ("KRUU-LP - Fairfield, Iowa Community Radio"
+          ;;  "http://kruufm.com/live.pls" 1 streamlist)
+          ("WBCR-LP - Berkshire Community Radio"
+           "http://nyc01.egihosting.com:6232/listen.pls" 1 streamlist))
+        ) 
+  (require 'emms-streams)
   )
 
 (defun media/init-emms-state ()
@@ -195,115 +300,8 @@ Disabled by default."
   (interactive)
   (when emms-player-playing-p
     (emms-player-seek 1)))
-
+)
 ;; Adding some streams here.  Delete others that no longer work
 
-(require 'emms-streams)
-(defvar emms-stream-default-list
-      '(("SomaFM: Beatblender"
-         "http://www.somafm.com/beatblender.pls" 1 streamlist)
-        ("SomaFM: Secret Agent"
-         "http://www.somafm.com/secretagent.pls" 1 streamlist)
-        ("SomaFM: Groove Salad"
-         "http://www.somafm.com/groovesalad.pls" 1 streamlist)
-        ("SomaFM: Drone Zone"
-         "http://www.somafm.com/dronezone.pls" 1 streamlist)
-        ("SomaFM: Tag's Trance"
-         "http://www.somafm.com/tagstrance.pls" 1 streamlist)
-        ("SomaFM: Indie Pop Rocks"
-         "http://www.somafm.com/indiepop.pls" 1 streamlist)
-        ("SomaFM: Doomed"
-         "http://www.somafm.com/doomed.pls" 1 streamlist)
-        ;; DI now only available with premium account.
-        ;;("Digitally Imported, Trance"
-        ;; "http://www.di.fm/mp3/trance.pls" 1 streamlist)
-        ;; ("Digitally Imported, Deephouse"
-        ;;  "http://www.di.fm/mp3/deephouse.pls" 1 streamlist)
-        ;; ("Digitally Imported, Chillout"
-        ;;  "http://www.di.fm/mp3/chillout.pls" 1 streamlist)
-        ;; ("Digitally Imported, Drum and Bass"
-        ;;  "http://www.di.fm/mp3/drumandbass.pls" 1 streamlist)
-        ;; SKY only available with premium account.
-        ;; ("SKY.fm, Mostly Classical"
-        ;;  "http://www.sky.fm/mp3/classical.pls" 1 streamlist)
-        ;; ("SKY.fm, Jazz"
-        ;;  "http://www.sky.fm/mp3/jazz.pls" 1 streamlist)
-        ;; Appears to be defunct
-        ;; ("Philosomatika, Goa-Trance"
-        ;;  "http://www.shoutcast.com/sbin/shoutcast-playlist.pls?rn=1712&file=filename.pls" 1 streamlist)
-        ("P H I L O S O M A T I K A - Progressive Psytrance"
-         "http://listen.radionomy.com:80/-PHILOSOMATIKAPROGRESSIVE-" 1 url)
-        ("P H I L O S O M A T I K A - Psytrance"
-         "http://listen.radionomy.com:80/-PHILOSOMATIKA-" 1 url)
-        ("Drum and Bass Radio, BassDrive"
-         "http://www.bassdrive.com/BassDrive.m3u" 1 streamlist)
-        ;; These appear to be defunct
-        ;; ("Flaresound, Jazzmusique"
-        ;;  "http://64.236.34.196:80/stream/1016" 1 url)
-        ;; ("Flaresound, Jazzmusique"
-        ;;  "http://205.188.234.4:8004" 2 url)
-        ;; ("Flaresound, L'Electric"
-        ;;  "http://www.bp6.com:8002" 1 url)
-        ;; ("Stangs Garage, Eclectic"
-        ;;  "http://www.stangsgarage.com/listen.pls" 1 streamlist)
-        ;; ("DNA Lounge, Live"
-        ;;  "http://www.dnalounge.com/webcast/128.m3u" 1 streamlist)
-        ;; ("DNA Lounge Radio"
-        ;;  "http://www.dnalounge.com/webcast/dnaradio.m3u" 1 streamlist)
-        ;; ("Virgin Radio, The Groove"
-        ;;  "http://www.smgradio.com/core/audio/ogg/live.pls?service=grbb"
-        ;;  1 streamlist)
-        ;; ("Virgin Radio, Virgin Classic"
-        ;;  "http://www.smgradio.com/core/audio/ogg/live.pls?service=vcbb"
-        ;;  1 streamlist)
-        ;; ("Virgin Radio, Virgin 1215AM"
-        ;;  "http://www.smgradio.com/core/audio/ogg/live.pls?service=vrbb"
-        ;;  1 streamlist)
-        ;; ("Voices From Within - Words From Beyond"
-        ;;  "http://207.200.96.225:8024/listen.pls" 1 streamlist)
-        ("WCPE, Classical Music"
-         "http://www.ibiblio.org/wcpe/wcpe.pls" 1 streamlist)
-        ;; Defunct
-        ;; ("PLUG: Voices of the Free Software movement"
-        ;;  "http://purduelug.org:8000/voices-free_software.ogg" 1 url)
-        ;; ("VGamp Radio, Video Game music"
-        ;;  "http://vgamp.com/listen128.pls" 1 streamlist)
-        ("Kohina - Old school game and demo music"
-         "http://stream.nute.net/kohina/stream.ogg.m3u" 1 streamlist)
-        ;; Changed url, see below
-        ;; ("Nectarine, Demoscene Radio"
-        ;;  "http://www.scenemusic.eu:8002/high.ogg.m3u" 1 streamlist)
-        ;; Nectarine radio stations updated
-        ("Nectarine, Demoscene Radio, DE Continuum's relay 192 mp3"
-         "http://privat.is-by.us:8000/necta192.mp3.m3u" 1 streamlist)
-        ("Nectarine, Demoscene Radio, DE stream (High Bitrate)"
-         "http://nectarine.from-de.com/necta192.m3u" 1 streamlist)
-        ("Nectarine, Demoscene Radio, FR stream (High Bitrate)"
-         "http://necta-relay.mnus.de:8000/necta192.mp3.m3u" 1 streamlist)
-        ("Nectarine, Demoscene Radio, Norwegian stream"
-         "http://pmaster.no:9000/necta.m3u" 1 streamlist)
-        ("Nectarine, Demoscene Radio, UK stream (High Bitrate)"
-         "http://necta.jansenit.com:8000/necta192.mp3.m3u" 1 streamlist)
-        ("idobi Radio"
-         "http://www.idobi.com/radio/iradio.pls" 1 streamlist)
-        ("radio.wazee - Modern Alternative Rock"
-         "http://www.wazee.org/128.pls" 1 streamlist)
-        ;; Defunct
-        ;; ("ChroniX Aggression - Loud & Clear"
-        ;;  "http://www.chronixradio.com/chronixaggression/listen/listen.pls"
-        ;;  1 streamlist)
-        ("WFMU, Freeform radio"
-         "http://www.wfmu.org/wfmu.pls" 1 streamlist)
-        ;; Defunct
-        ;; ("KEXP - Seattle Community Radio"
-        ;;  "http://kexp-mp3-128k.cac.washington.edu:8000/listen.pls" 1 streamlist)
-        ;; Defunct
-        ;; ("KRUU-LP - Fairfield, Iowa Community Radio"
-        ;;  "http://kruufm.com/live.pls" 1 streamlist)
-        ("WBCR-LP - Berkshire Community Radio"
-         "http://nyc01.egihosting.com:6232/listen.pls" 1 streamlist))
-      )
-
-  )
 
 ;;; packages.el ends here
