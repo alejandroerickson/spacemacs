@@ -101,7 +101,7 @@ Each entry is either:
       (emms-playing-time 1)
       (emms-default-players)
       (autoload 'emms-smart-browse "emms-browser.el" "Browse with EMMS" t)
-      (define-key emms-browser-mode-map (kbd "D") 'emms-browser-delete-files-by-moving-to-trash)
+      (define-key emms-browser-mode-map (kbd "D") 'emms-browser-move-files-to-trash)
       (define-key emms-browser-mode-map (kbd "t") 'emms-browser-toggle-subitems)
       (require 'emms-info-libtag)
       (setq emms-info-functions '(emms-info-libtag))
