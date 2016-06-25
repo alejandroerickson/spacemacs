@@ -255,6 +255,8 @@ the usual marking features. Operations should occur on all marked tracks.
     evilified state.
   - Add keybindings for track information editor
   - helm-emms does not narrow as it should.
+  - layer does not support MusicPD yet
+  - layer does not support emms-lyrics yet
 
 
   
