@@ -84,6 +84,7 @@ Each entry is either:
         "ames" 'emms-streams
         "ameb" 'emms-browser
         "amep" 'emms-playlist-mode-go
+        "ameo" 'emms-show
         "a SPC" 'emms-play-pause-dwim
         "a ." 'emms-next
         "a ," 'emms-previous
