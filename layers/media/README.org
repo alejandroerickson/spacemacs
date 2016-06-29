@@ -12,6 +12,7 @@
    - [[EMMS configuration ][EMMS configuration ]]
    - [[Configuring media keys][Configuring media keys]]
      - [[Setting the media keys on Mac OS X][Setting the media keys on Mac OS X]]
+ - [[Obtaining Cover Art][Obtaining Cover Art]]
  - [[Key bindings][Key bindings]]
    - [[Evilified keybindings][Evilified keybindings]]
      - [[Interactive Playlists][Interactive Playlists]]
@@ -26,6 +27,7 @@ This layer installs and configures media library management software EMMS.
 https://www.gnu.org/software/emms/
 
 * Install
+
 To use the media layer add it to your =~/.spacemacs=
 
 #+begin_src emacs-lisp
@@ -134,6 +136,66 @@ ensure that Emacs can find it in your PATH.
     Second, open Karabiner preferences and press "Reload XML". Third, and
     finally, tick the three boxes related to EMMS.
     
+* Obtaining Cover Art
+  You can add cover art to EMMS. Just add files `cover-small.jpg` and
+  `cover-med.jpg` to album directories. You also prevent album cover art from
+  appearing in the browser at all by adding
+  #begin_src
+  (setq emms-browser-covers nil)
+  #end_src
+
+  Cover art can be snarfed from the Web with the third-party program `beets`, and then
+  resized with ImageMagik. It's a bit manual but it's also pretty easy. These
+  instructions are adapted from this [[http://emacs.stackexchange.com/questions/3667/what-are-the-options-to-play-music-from-within-emacs/3741#3741][Stack Exchange answer]].
+
+  [[http://beets.io/][Install `beets`]] and open the [[http://beets.readthedocs.io/en/v1.3.19/guides/main.html][Quickstart page]] and do (more or less) the following:
+     1. Create the music library file anywhere: e.g., `~/data/musiclibrary.blb`
+     2. call `beet config -e` to create/edit a YAML config file for beets
+     3. Add the lines:
+        ```
+        directory: "/path/to/music"
+        library: "~/data/musiclibrary.blb"
+        import:
+          copy: no
+          write: no
+        plugins: fetchart
+        ```
+     4. Call `beet import -ql .` from `/path/to/music`.
+        - `-ql` is for quiet and log modes.  If you want to use beets seriously, read the [[http://beets.readthedocs.io/en/latest/guides/tagger.html][docs on auto-tagging]].
+        - Use `-g` if you have tracks from multiple albums in the same directory (I expect this is slower).
+     5. Open the [[http://beets.readthedocs.io/en/latest/plugins/fetchart.html][fetchart docs]] and do `pip install requests` to enable requests from the Web.
+        - Execute `beet fetchart` and decide whether you are satisfied with its success rate.
+        - If not, you can configure fetchart to search more sources by adding a `fetchart: ` tag to the beets config file (`beets config -e`), and try again.
+     6. Install ImageMagik to use the `convert` function in the script below.
+     7. Execute the script provided below, editing `/path/to/music`.  Note that it overwrites files named `cover_small.<cover file ext>`, `cover_med.<cover file ext>`.
+  #+begin_src bash
+#!/bin/sh
+MUSICDIR="/path/to/music/"
+# resize covers
+#preferred small size, edit this.
+SMALL_SIZE=50
+#preferred med size, edit this.
+MED_SIZE=200
+find "$MUSICDIR" -iname "cover.jpg" |
+find . -type f -iname 'cover.jpg' -exec bash -c '
+  for file do
+    EXTENSION="${file##*.}"
+    FILENAME="${file%.*}"
+    NEW_MED_NAME="${FILENAME}_med.${EXTENSION}"
+    NEW_SMALL_NAME="${FILENAME}_small.${EXTENSION}"
+    if [ ! -f "${NEW_MED_NAME}" ]; then
+        convert "${file}" -adaptive-resize 200x200 "${NEW_MED_NAME}"
+    fi
+    if [ ! -f "${NEW_SMALL_NAME}" ]; then
+       convert "${file}" -adaptive-resize 100x100 "${NEW_SMALL_NAME}"
+    fi
+  done
+' bash {} +
+  #+end_src
+
+  Open the emms browser `SPC a RET` and type `b 2` to refresh the list and sort
+  by album. Your cover art should appear now.
+
 * Key bindings
   EMMS browser and playlist modes can be access with leader keys. In Vim-style
   Spacemacs leader keys are accessed with =SPC= (as described in the table) and
