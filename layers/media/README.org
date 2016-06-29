@@ -138,7 +138,11 @@ ensure that Emacs can find it in your PATH.
     
 * Obtaining Cover Art
   You can add cover art to EMMS. Just add files `cover-small.jpg` and
-  `cover-med.jpg` to album directories. You also prevent album cover art from
+  `cover-med.jpg` to album directories. It looks really nice!
+
+[[img/covers-screenshot.png]]
+
+You also prevent album cover art from
   appearing in the browser at all by adding
   #begin_src
   (setq emms-browser-covers nil)
