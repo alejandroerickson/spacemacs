@@ -19,7 +19,10 @@
     company
     company-emoji
     smartparens
-    ))
+    (ob-markdown :location (recipe
+                            :fetcher github
+                            :repo "tnoda/ob-markdown")
+    )))
 
 (defun markdown/post-init-emoji-cheat-sheet-plus ()
   (add-hook 'markdown-mode-hook 'emoji-cheat-sheet-plus-display-mode))
@@ -208,6 +211,12 @@ Will work on both org-mode and any mode that accepts plain html."
       (mmm-add-mode-ext-class 'markdown-mode nil 'markdown-javascript)
       (mmm-add-mode-ext-class 'markdown-mode nil 'markdown-ess)
       (mmm-add-mode-ext-class 'markdown-mode nil 'markdown-rust))))
+
+(defun markdown/init-ob-markdown ()
+  (use-package ob-markdown
+      :defer t
+      )
+  )
 
 (when (configuration-layer/layer-usedp 'auto-completion)
   (defun markdown/post-init-company ()
